@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+
+    <FrameLayout
+        android:id="@+id/top_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="12dp"
+        android:paddingTop="8dp"
+        android:paddingRight="12dp"
+        android:paddingBottom="8dp">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/bt_select"
+            android:layout_width="wrap_content"
+            android:layout_height="32dp"
+            android:layout_gravity="left"
+            android:insetTop="0dp"
+            android:insetBottom="0dp"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp"
+            android:text="Deselect All"
+            android:textAllCaps="false"
+            android:textColor="#037AEF"
+            android:textSize="14sp"
+            app:backgroundTint="#F5F5F5"
+            app:cornerRadius="16dp" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/bt_mode"
+            android:layout_width="wrap_content"
+            android:layout_height="32dp"
+            android:layout_gravity="right"
+            android:insetTop="0dp"
+            android:insetBottom="0dp"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp"
+            android:text="Cancel"
+            android:textAllCaps="false"
+            android:textColor="#037AEF"
+            android:textSize="14sp"
+            app:backgroundTint="#F5F5F5"
+            app:cornerRadius="16dp" />
+
+        <TextView
+            android:id="@+id/tv_desc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:textSize="15sp"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            />
+
+    </FrameLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingBottom="?attr/actionBarSize"
+        android:clipToPadding="false"
+        android:layout_below="@+id/top_layout" />
+
+    <LinearLayout
+        android:id="@+id/action_layout"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal"
+        android:visibility="gone">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/bt_share"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:insetTop="0dp"
+            android:insetBottom="0dp"
+            android:text="Share"
+            app:iconTint="@null"
+            android:background="@color/white"
+            android:textColor="@color/black"
+            app:backgroundTint="@color/white"
+            app:icon="@mipmap/ic_launcher"
+            app:iconGravity="textTop"
+            android:textAllCaps="false"
+            android:textSize="14sp"
+            android:drawablePadding="0dp"
+            app:iconSize="24dp" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/bt_delete"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:insetTop="0dp"
+            android:insetBottom="0dp"
+            android:text="Delete"
+            app:iconTint="@null"
+            android:background="@color/white"
+            android:textColor="@color/black"
+            app:backgroundTint="@color/white"
+            app:icon="@mipmap/ic_launcher"
+            app:iconGravity="textTop"
+            android:textAllCaps="false"
+            android:textSize="14sp"
+            android:drawablePadding="0dp"
+            app:iconSize="24dp" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/bt_more"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:insetTop="0dp"
+            android:insetBottom="0dp"
+            android:text="More"
+            app:iconTint="@null"
+            android:background="@color/white"
+            android:textColor="@color/black"
+            app:backgroundTint="@color/white"
+            app:icon="@mipmap/ic_launcher"
+            app:iconGravity="textTop"
+            android:textAllCaps="false"
+            android:textSize="14sp"
+            android:drawablePadding="0dp"
+            app:iconSize="24dp" />
+
+    </LinearLayout>
+
+</RelativeLayout>
