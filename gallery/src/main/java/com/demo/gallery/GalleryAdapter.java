@@ -26,18 +26,29 @@ public class GalleryAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
     public static final int ITEM_NORMAL = 0;
     public static final int ITEM_TITLE = 1;
 
-    private final ArrayList<GalleryItem> data;
+    private ArrayList<GalleryItem> data;
     private Context context;
-    private final HashSet<Integer> mSelected;
-    private final List<Integer> titleIndex;
+    private final HashSet<Integer> mSelected = new HashSet<>();
+    private final List<Integer> titleIndex = new ArrayList<>();
     private boolean selectMode = false;
     private ItemClickListener listener;
 
+    public GalleryAdapter() {
+    }
 
     public GalleryAdapter(ArrayList<GalleryItem> data) {
         this.data = data;
-        mSelected = new HashSet<>();
-        titleIndex = new ArrayList<>();
+        reset();
+        for (int i = 0; i < data.size(); i++) {
+            if (data.get(i).isTitle()) {
+                titleIndex.add(i);
+            }
+        }
+    }
+
+    public void setData(ArrayList<GalleryItem> data) {
+        this.data = data;
+        reset();
         for (int i = 0; i < data.size(); i++) {
             if (data.get(i).isTitle()) {
                 titleIndex.add(i);
@@ -47,6 +58,11 @@ public class GalleryAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
 
     public void setOnItemClickListener(ItemClickListener itemClickListener) {
         this.listener = itemClickListener;
+    }
+
+    private void reset() {
+        mSelected.clear();
+        titleIndex.clear();
     }
 
     public boolean isSelectMode() {
@@ -92,7 +108,7 @@ public class GalleryAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
     }
 
     public void selectAll() {
-        for (int i = 0; i < getItemCount(); i++){
+        for (int i = 0; i < getItemCount(); i++) {
             mSelected.add(i);
         }
         notifyDataSetChanged();
@@ -100,7 +116,7 @@ public class GalleryAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
     }
 
     public void toggleSelection(int pos) {
-        if (mSelected.contains(pos)){
+        if (mSelected.contains(pos)) {
             mSelected.remove(pos);
         } else {
             mSelected.add(pos);
@@ -110,7 +126,7 @@ public class GalleryAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
     }
 
     public void select(int position, boolean selected) {
-        if (selected){
+        if (selected) {
             mSelected.add(position);
         } else {
             mSelected.remove(position);
